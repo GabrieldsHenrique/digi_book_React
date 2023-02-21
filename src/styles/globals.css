@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'digimon';
+	src: url('../../public/font/PixelDigivolve-mOm9.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+  
+}
+
+.fonte{
+  font-family: 'digimon';
+}
