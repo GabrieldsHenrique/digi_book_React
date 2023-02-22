@@ -14,3 +14,11 @@
   font-family: 'digimon';
   word-spacing: 5px;
 }
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+html {
+  scroll-behavior: smooth
+}
