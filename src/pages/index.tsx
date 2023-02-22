@@ -1,9 +1,48 @@
 import { NextPage } from "next";
 import React from "react";
 import Laterais from "../components/Laterais";
-import Container from "../components/Laterais";
+import ParticipantButton from "../components/personagem";
+
 
 const Home: NextPage = () => {
+  let participantData = [
+    {
+      img: { src: "../img/taichi.png", alt: "Personagem Taichi Kamiya" },
+      name: "Taichi Kamiya",
+      content: "Tai é enérgico e aventureiro. Ele também age impulsivamente e corre sem pensar nas consequências, especialmente quando seus amigos estão em perigo, mas é rápido em perceber e admitir que ele estava errado.",
+      idade:  "11 anos",
+      ator: "Toshi Fujita",
+      parceiro: "Agumon",
+      tracos: "Coragem",
+      nascionalidade: "Japão",
+      ocupacao: "Estudante"
+    },
+
+    {
+      img: { src: "../img/koshiro.png", alt: "Personagem Koushiro Izumi" },
+      name: "Koushiro Izumi",
+      content: "Izzy é um especialista em informática e gasta uma grande fração de seu tempo tentando descobrir coisas em seu laptop 'PiBook'. Ele é muito inteligente e experiente, e muitas vezes se perde em pensamentos.",
+      idade:  "10 anos",
+      ator: "Umi Tenjin",
+      parceiro: "Tentomon",
+      tracos: "Conhecimento",
+      nascionalidade: "Japão",
+      ocupacao: "Estudante"
+    },
+    {
+      img: { src: "../img/takeru.png", alt: "Personagem Takeru Takaishi" },
+      name: "Takeru Takaishi",
+      content: "Está no 2 ano de escolaridade. É o irmão mais novo de Yamato. Devido a certas circunstâncias, vive separado dele, mas com o incidente do primeiro episódio, começa a desenvolver uma estranha intuição.",
+      idade:  "8 anos",
+      ator: "Megumi Han",
+      parceiro: "Patamon",
+      tracos: "Esperança",
+      nascionalidade: "Japão",
+      ocupacao: "Estudante"
+    }
+   
+  ];
+  
   return (
     <>
       <section>
@@ -58,11 +97,6 @@ const Home: NextPage = () => {
         <div id="buscar" className="h-[100vh] grid items-center">
           <div className="grid grid-cols-12 gap-4">
             {/*  Titulo da Pagina  */}
-            <div className="col-start-6 col-span-2">
-              <h1 className="text-white  text-center text-[1.5rem] border-4 rounded-xl  shadow-2xl ">
-                Digi-BOOk
-              </h1>
-            </div>
 
             {/* Inicio do Filtro de Busca  */}
             <div className="col-span-12 grid grid-cols-12 gap-4 fonte text-white text-xl ">
@@ -132,9 +166,9 @@ const Home: NextPage = () => {
         >
           {/*  Seleção de Personagens  */}
           <div className="grid grid-rows-3 gap-2 h-[25rem] col-start-2">
-                  <Laterais imgUrl="../img/taichi.png"/>
-                 <Laterais imgUrl="../img/koshiro.png"/>
-                 <Laterais imgUrl="../img/hikari.png"/>
+          {participantData.map((participant, key) => (
+                  <ParticipantButton key={key} data={participant} />
+                ))} 
           </div>
           {/* <!-- Fim Seleção de Personagens --> */}
 
@@ -158,8 +192,8 @@ const Home: NextPage = () => {
                 <h2 className=" text-white text-[1.8rem]   text-center ">
                   Sobre o Anime
                 </h2>
+
                 <h2 className=" text-white text-[0.9rem] border-2 rounded-xl p-4 shadow-2xl text-justify bg-[#4778A6] ">
-                  {" "}
                   A série começa em 1 de agosto de 1999, quando 6 estudantes —
                   Taichi Yagami, Sora Takenouchi, Yamato Ishida, Takeru
                   Takaishi, Koshiro Izumie e Hikari Kamiya — em férias num
@@ -182,12 +216,46 @@ const Home: NextPage = () => {
 
             {/* Seleção de Personagens */}
             <div className="grid grid-rows-3 gap-2 h-[25rem]">
-                <Laterais imgUrl="../img/takeru.png"/>
-                 <Laterais imgUrl="../img/yamato.png"/>
-                 <Laterais imgUrl="../img/sora.png"/>
+   
+                  <ParticipantButton data={{
+             img: { src: "../img/hikari.png", alt: "Personagem Hikari Kamiya" },
+             name: "Hikari Kamiya",
+             content: "Kari é o doce, inocente e alegre irmão mais novo de um Digidestinado. Ela sempre procura o melhor lado das pessoas sem recorrer à violência, mas pode ser séria em situações drásticas.",
+             idade:  "8 anos",
+             ator: "Kae Araki",
+             parceiro: "Gatomon",
+             tracos: "Luz",
+             nascionalidade: "Japão",
+             ocupacao: "Estudante"
+            }}  />
+
+            <ParticipantButton data={{
+             img: { src: "../img/yamato.png", alt: "Personagem Yamato Ishida" },
+             name: "Yamato Ishida",
+             content: "Matt começa como um solitário secreto com um comportamento legal. Ele é maduro, pensativo e equilibrado, e mais propenso a pensar nas coisas do que cobrar de frente. Ele é uma pessoa profundamente carinhosa.",
+             idade:  "11 anos",
+             ator: "Youto Kazama",
+             parceiro: "Gabumon",
+             tracos: "Amizade",
+             nascionalidade: "Japão",
+             ocupacao: "Estudante"
+            }} />
+            <ParticipantButton data={{
+              img: { src: "../img/sora.png", alt: "Personagem Sora Takenouchis" },
+              name: "Sora Takenouchis",
+              content: "Sora é gentil, responsável, carinhosa e protetora, com seu primeiro instinto sendo tentar ajudar os outros de qualquer maneira que puder, muito parecido com uma mãe. Está sempre disposta a ajudar.",
+              idade:  "11 anos",
+              ator: "Yuko Mizutani",
+              parceiro: "Biyomon",
+              tracos: "Amor",
+              nascionalidade: "Japão",
+              ocupacao: "Estudante"
+             }} />
+                
             </div>
             {/* Fim Seleção de Personagens */}
           </div>
+
         
       </section>
     </>
