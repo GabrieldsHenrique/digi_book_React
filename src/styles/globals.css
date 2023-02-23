@@ -23,3 +23,19 @@ html {
   scroll-behavior: smooth
 }
 
+.digitacao::after{
+	content: '|';
+	margin-left: 5px;
+	opacity: 1;
+    display: inline-block;
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
