@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export default axios.create(
-    {baseURL: ''}
+    {baseURL: 'https://digimon-api.vercel.app/api/digimon/'
+}
 );

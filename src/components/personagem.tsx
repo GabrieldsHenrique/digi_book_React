@@ -27,13 +27,10 @@ interface IProps {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="hover:scale-105 transition-all"
-            ><div className="flex  h-full justify-center bg-[#4778A6] border-2 rounded-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-100 hover:bg-[#FF911A] duration-300 ">
-            <button ><picture><img className=" h-full p-1 " src={data.img.src} alt={data.img.alt}/></picture></button>
-            </div>
-              <picture>
+              className="flex  h-full justify-center bg-[#4778A6] border-2 rounded-2xl transition ease-in delay-150 hover:-translate-y-1 hover:scale-100 hover:bg-[#FF911A] duration-300 ">
+            <picture><img className=" max-h-[8rem] p-1 " src={data.img.src} alt={data.img.alt}/></picture>
+            
 
-              </picture>
             </button>
 
   
@@ -56,7 +53,7 @@ interface IProps {
                   <p className=" text-white text-[2rem]   text-center "
                   >{data.name}</p>
 
-                  <p className=" text-white text-[1.2rem] border-2 rounded-xl p-3 shadow-2xl text-justify bg-[#4778A6] h-72"
+                  <p className=" text-white text-[1.2rem] border-2 rounded-xl p-2 shadow-2xl text-justify bg-[#4778A6] h-72"
                   >{data.content}</p>
                 </div>
 
