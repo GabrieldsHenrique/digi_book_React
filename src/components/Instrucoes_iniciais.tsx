@@ -14,7 +14,7 @@ function Instrucoes_iniciais() {
       {showFirstDiv && (
         <div className=" grid  place-items-center justify-center items-center">
           <h1
-              className="text-white  text-center text-[2.6rem] border-4 rounded-xl p-4 shadow-2xl w-[39rem]"
+              className="text-white text-[2.5rem] w-[25rem] sm:text-[2.2rem]  lg:w-[30rem] lg:w-[38.8rem] text-center  lg:text-[2.6rem] border-4 rounded-xl p-4 shadow-2xl  "
             >
               <Manuscrito>BEM-VINDO AO Digi-BOOk.</Manuscrito>
             </h1>
@@ -27,15 +27,15 @@ function Instrucoes_iniciais() {
                   Proximo
                 </button>
               }
-              delay={3000}
-              transitionTime={1000}
+              delay={2000}
+              transitionTime={3000}
             />
         </div>
       )}
       {!showFirstDiv && (
         <div className=" grid  place-items-center justify-center items-center">
           <p
-              className="text-white text-[2rem]  text-center border-4 rounded-xl p-4 shadow-xl  w-[39rem]"
+              className="text-white text-[1.5rem] w-[25rem]  sm:text-[1.4rem] lg:text-[1.5rem] text-center    border-4 rounded-xl p-4 shadow-xl  max-w-[39rem] xl:w-[36rem] xl:text-[1.8rem]"
             >
               <Manuscrito>Aqui você podera analisar todos os digimons existentes, tendo
               disponivel filtros para facilitar a sua busca.</Manuscrito>

@@ -8,7 +8,7 @@ interface IProps{
 
 const Layout = ({children} : IProps) => {
   return <>
-  <main className=' scroll-auto  bg-gradient-to-b from-[#0C3459] via-[#5D9DD9] to-[#12518B] min-h-screen px-14 fonte '>
+  <main className=' scroll-auto bg-gradient-to-b from-[#0C3459] via-[#5D9DD9] to-[#12518B] fonte '>
     <Header></Header>
     {children}
     <Footer></Footer>

@@ -1,11 +1,9 @@
 import axios from "axios";
 import { NextPage } from "next";
 import React, { useRef, useEffect, useState } from "react";
-
+import Footer from "../components/Footer";
 import Instrucoes_iniciais from "../components/Instrucoes_iniciais";
-
 import Laterais from "../components/Laterais";
-import Manuscrito from "../components/manuscrito";
 import ParticipantButton from "../components/personagem";
 
 const Home: NextPage = () => {
@@ -33,24 +31,23 @@ const Home: NextPage = () => {
     loadPosts();
   }, []);
 
-  console.log(digimons);
 
   return (
     <>
-      <section>
+      <section >
         {/* Tela Inicio */}
         <div
           id="inicio"
           className="h-[100vh] flex justify-center items-center "
         >
-          <picture className="flex justify-end">
+          <picture className="hidden sm:flex   justify-end ">
             <img
               src="../img/Taichi_Yagami.png"
-              className="w-[11.4rem] drop-shadow-2xl "
+              className="  sm:w-[9rem] lg:w-[10rem] xl:w-[11.7rem] drop-shadow-2xl "
               alt="Imagem Personagem Taichi Yagami"
             />
           </picture>
-          
+        
             <Instrucoes_iniciais></Instrucoes_iniciais>
 
           </div>
@@ -60,10 +57,12 @@ const Home: NextPage = () => {
         {/* Inicio Buscar */}
         <div id="buscar" className="h-[100vh] grid items-center">
           <div className="grid grid-cols-12 gap-4">
+
             {/*  Titulo da Pagina  */}
-            <div className="col-start-6 col-span-2">
-            <h1 className="text-white  text-center text-[1.5rem] border-4 rounded-xl  shadow-2xl ">Digi-BOOk</h1>
+            <div className="col-start-5 col-span-4 lg:col-span-2 lg:col-start-6 ">
+            <h1 className="text-white  text-center text-[1.2rem] lg:text-[1.75rem] border-4 rounded-xl  shadow-2xl ">Digi-BOOk</h1>
             </div>
+
             {/* Inicio do Filtro de Busca  */}
             <div className="col-span-12 grid grid-cols-12 gap-4 fonte text-white text-xl ">
               <input
@@ -71,11 +70,11 @@ const Home: NextPage = () => {
                 type="text"
                 id="buscaNome"
                 placeholder="Nome:"
-                className="col-start-3 col-span-3 px-3 shadow-2xl  bg-transparent border-2 focus:border-[#4778A6] rounded-xl  placeholder-white focus:outline-none "
+                className="col-start-3 col-span-4 lg:col-span-3 lg:col-start-3  px-3 shadow-2xl  bg-transparent border-2 focus:border-[#4778A6] rounded-xl  placeholder-white focus:outline-none "
               />
               <button
                 id="bLevel"
-                className="shadow-2xl px-3 text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
+                className="hidden lg:flex shadow-2xl items-center justify-center text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
               >
                 buscar
               </button>
@@ -84,18 +83,18 @@ const Home: NextPage = () => {
                 type="text"
                 onChange={(e) => setSearchLevel(e.target.value)}
                 placeholder="Level:"
-                className="col-span-3 px-3 shadow-2xl  bg-transparent border-2 focus:border-[#4778A6] rounded-xl placeholder-white focus:outline-none "
+                className="col-span-4 px-3 shadow-2xl lg:col-span-3   bg-transparent border-2 focus:border-[#4778A6] rounded-xl placeholder-white focus:outline-none "
               />
               <button
                 id="bLevel"
-                className="shadow-2xl px-3 text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
+                className="hidden  lg:flex items-center justify-center shadow-2xl px-3 text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
               >
                 buscar
               </button>
               <button
                 onClick={() => handleClick("")}
                 id="bLevel"
-                className="shadow-2xl px-3  text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
+                className="hidden  lg:flex shadow-2xl  items-center justify-center text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
               >
                 limpar
               </button>
@@ -103,26 +102,27 @@ const Home: NextPage = () => {
 
             <div className="col-span-12 grid grid-cols-12 gap-4  items-center">
               {/* Filtros Laterais */}
-              <div className="h-[25rem] col-start-2 grid grid-rows-4 gap-4  items-center">
-                <button onClick={() => handleClick("Fresh")}>
+              <div className="h-full col-start-2 lg:grid grid-rows-4 gap-4  items-center hidden ">
+                <button className=" h-full  " onClick={() => handleClick("Fresh")}>
                   <Laterais imgUrl="../img/lob1.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("training")}>
+                <button  className="h-full " onClick={() => handleClick("training")}>
                   <Laterais imgUrl="../img/lob2.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("Champion")}>
+                <button  className="h-full  " onClick={() => handleClick("Champion")}>
                   <Laterais imgUrl="../img/lob3.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("Mega")}>
+                <button  className="h-full  "  onClick={() => handleClick("Mega")}>
                   <Laterais imgUrl="../img/lob4.png" result="/level/rookie" />
                 </button>
               </div>
 
               {/* Tabela DIGIMONS */}
-              <div className="col-span-8 col-start-3 border-2 rounded-xl overflow-auto shadow-2xl h-[25rem] ">
-                <div className="grid grid-cols-3 gap-4 p-2 ">
+              <div className="col-span-8 col-start-3 border-2 rounded-xl overflow-auto shadow-2xl h-[26rem] ">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-2 ">
                   {loading ? (
-                    <h4>Loading ...</h4>
+                    <div className=" flex col-span-3 items-center justify-center "><img src="../img/gengar-pokemon.gif" alt="" /></div>
+                    
                   ) : (
                     digimons
                       .filter((digimon) => {
@@ -178,17 +178,17 @@ const Home: NextPage = () => {
               </div>
 
               {/* Filtros Laterais */}
-              <div className="h-[25rem] grid grid-rows-4 gap-4  items-center">
-                <button onClick={() => handleClick("in training")}>
+              <div className="h-full lg:grid grid-rows-4 gap-4  items-center hidden">
+                <button  className="h-full " onClick={() => handleClick("in training")}>
                   <Laterais imgUrl="../img/lag1.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("rookie")}>
+                <button  className="h-full " onClick={() => handleClick("rookie")}>
                   <Laterais imgUrl="../img/lag2.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("Ultimate")}>
+                <button  className="h-full " onClick={() => handleClick("Ultimate")}>
                   <Laterais imgUrl="../img/lag3.png" result="/level/rookie" />
                 </button>
-                <button onClick={() => handleClick("Armor")}>
+                <button  className="h-full " onClick={() => handleClick("Armor")}>
                   <Laterais imgUrl="../img/lag4.png" result="/level/rookie" />
                 </button>
               </div>
@@ -200,10 +200,10 @@ const Home: NextPage = () => {
         {/* Inicio Extra */}
         <div
           id="sobre"
-          className="grid grid-cols-12 gap-4 items-center h-[100vh]"
+          className="grid grid-cols-12 gap-4 items-center h-[80vh]"
         >
           {/*  Seleção de Personagens  */}
-          <div className="grid grid-rows-3 gap-2 h-[25rem] col-start-2">
+          <div className="md:grid grid-rows-3 gap-2 h-[26rem] col-start-2 hidden">
             <ParticipantButton
               data={{
                 img: {
@@ -259,23 +259,23 @@ const Home: NextPage = () => {
           {/* <!-- Fim Seleção de Personagens --> */}
 
           {/* <!-- Container da Historia --> */}
-          <div className="col-span-8  border-2  shadow-2xl h-[25rem]  gap-4 p-12 flex items-center rounded-3xl">
+          <div className="col-span-8 col-start-3 border-2  shadow-2xl h-[26rem]    gap-4  p-6 flex  rounded-2xl overflow-auto sm:overflow-hidden">
 
             {/* <!-- Apresentação --> */}
-            <div className="grid grid-cols-12 gap-2 place-items-center items-center">
-              <picture className="col-span-3">
+            <div className="grid grid-cols-11  sm:items-center lg:gap-4 xl:grid-cols-12 ">
+              <picture className="md:col-span-3 xl:col-span-3 xl:col-start-2  hidden md:flex place-itens-center">
                 <img
-                  className=" h-[23rem]"
+                  className="lg:h-[22rem] xl:h-[23rem]"
                   src="../img/personagem.png"
                   alt=""
                 />
               </picture>
-              <div className="col-span-9">
-                <h2 className=" text-white text-[1.8rem] drop-shadow-2xl  text-center ">
+              <div className="col-span-12 md:col-span-8  xl:col-span-7  sm:grid">
+                <h2 className=" text-white text-[1.5rem] lg:text-[1.8rem] drop-shadow-2xl  text-center  ">
                   Sobre o Anime
                 </h2>
 
-                <h2 className=" text-white text-[0.9rem] border-2 rounded-xl p-4 shadow-2xl text-justify bg-[#4778A6] ">
+                <h2 className=" text-white text-[0.9rem]  md:text-[0.8rem] md:border-2 lg:text-[0.8rem] xl:text-[0.9rem] rounded-xl p-4 shadow-2xl text-justify ">
                   A série começa em 1 de agosto de 1999, quando 6 estudantes —
                   Taichi Yagami, Sora Takenouchi, Yamato Ishida, Takeru
                   Takaishi, Koshiro Izumie e Hikari Kamiya — em férias num
@@ -284,8 +284,8 @@ const Home: NextPage = () => {
                   objetos não identificados posteriormente conhecidos como
                   digivices levam as crianças, através de um portal, a um outro
                   mundo.
-                  <p className="text-center text-[#ffb96f]">
-                    Descubra um pouco mais sobre cada personagens principal
+                  <p className="hidden lg:flex text-center text-[#ffb96f]">
+                    Descubra um pouco mais sobre cada personagem principal
                     selecionando nas barras laterais.
                   </p>
                 </h2>
@@ -297,7 +297,7 @@ const Home: NextPage = () => {
           {/* Fim Container da Historia  */}
 
           {/* Seleção de Personagens */}
-          <div className="grid grid-rows-3 gap-2 h-[25rem]">
+          <div className="md:grid grid-rows-3 gap-2 h-[26rem]  hidden">
             <ParticipantButton
               data={{
                 img: {
@@ -352,7 +352,8 @@ const Home: NextPage = () => {
             />
           </div>
           {/* Fim Seleção de Personagens */}
-        </div>
+         </div>
+        
       </section>
     </>
   );
