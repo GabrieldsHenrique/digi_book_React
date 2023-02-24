@@ -2,12 +2,11 @@ import React from 'react'
 
 interface IProps {
   imgUrl : string;
-  result : string;
 }
 
 
 
-const Laterais = ({imgUrl, result}:IProps) => {
+const Laterais = ({imgUrl}:IProps) => {
 
   return (
 

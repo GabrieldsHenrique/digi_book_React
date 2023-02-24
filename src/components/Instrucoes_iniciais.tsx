@@ -14,7 +14,7 @@ function Instrucoes_iniciais() {
       {showFirstDiv && (
         <div className=" grid  place-items-center justify-center items-center">
           <h1
-              className="text-white text-[2.5rem] w-[25rem] sm:text-[2.2rem]  lg:w-[30rem] lg:w-[38.8rem] text-center  lg:text-[2.6rem] border-4 rounded-xl p-4 shadow-2xl  "
+              className="text-white text-[2.5rem] w-[25rem] sm:text-[2.2rem]  lg:w-[38.8rem] text-center  lg:text-[2.6rem] border-4 rounded-xl p-4 shadow-2xl  "
             >
               <Manuscrito>BEM-VINDO AO Digi-BOOk.</Manuscrito>
             </h1>

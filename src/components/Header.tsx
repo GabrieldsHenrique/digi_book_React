@@ -2,6 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
+    // Deixa o Menu sempre no mesmo lugar nao interferindo no container 
     <header className="sticky top-0 h-0 grid grid-cols-12 items-center  drop-shadow-xl ">
       <div className="col-span-4 py-4 col-start-2 ">
         <picture><img src="../img/Digimon_Logo.svg" alt="Logo Digimon Digital Monsters" className="w-60 " /></picture>

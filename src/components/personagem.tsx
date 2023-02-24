@@ -18,7 +18,6 @@ interface IProps {
     };
   };
 
-
   const ParticipantButton = ({ data }: IProps) => {
     let [isOpen, setIsOpen] = useState<boolean>(false);
     return (

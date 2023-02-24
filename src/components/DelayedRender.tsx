@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+
+// Funcao para criar um delay na apresentação do botao
 function DelayedElement({ element, delay = 20, transitionTime = 100 }) {
   const [showElement, setShowElement] = useState(false);
 

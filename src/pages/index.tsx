@@ -1,23 +1,26 @@
 import axios from "axios";
 import { NextPage } from "next";
 import React, { useRef, useEffect, useState } from "react";
-import Footer from "../components/Footer";
 import Instrucoes_iniciais from "../components/Instrucoes_iniciais";
 import Laterais from "../components/Laterais";
 import ParticipantButton from "../components/personagem";
 
 const Home: NextPage = () => {
-  const nameTeste = useRef(null);
-
+  // Utilizado na requisição da API para confirmar a conexão
   const [loading, setLoading] = useState(false);
+  // Utilizado para armazenamento dos dados recebidos da api
   const [digimons, setDigimons] = useState([]);
+  // Utilizado para Pesquisa por Nome
   const [searchName, setSearchName] = useState("");
-
+  // Utilizado para Pesquisa por level
   const [searchLevel, setSearchLevel] = useState("");
 
+  // Quando clicar no botao você chama a variavel level passando para ela um valor
   const handleClick = (value: string) => {
     setSearchLevel(value);
   };
+
+  // Requisição da API
   useEffect(() => {
     const loadPosts = async () => {
       setLoading(true);
@@ -66,6 +69,7 @@ const Home: NextPage = () => {
             {/* Inicio do Filtro de Busca  */}
             <div className="col-span-12 grid grid-cols-12 gap-4 fonte text-white text-xl ">
               <input
+              // Armazena no setSearchName o valor do Input
                 onChange={(e) => setSearchName(e.target.value)}
                 type="text"
                 id="buscaNome"
@@ -79,7 +83,9 @@ const Home: NextPage = () => {
                 buscar
               </button>
 
+                
               <input
+              // Armazena no setSearchLevel o valor do Input
                 type="text"
                 onChange={(e) => setSearchLevel(e.target.value)}
                 placeholder="Level:"
@@ -92,38 +98,45 @@ const Home: NextPage = () => {
                 buscar
               </button>
               <button
+              // Quando clicar no botão limpa os filtros armazenados no setSearchLevel
                 onClick={() => handleClick("")}
                 id="bLevel"
                 className="hidden  lg:flex shadow-2xl  items-center justify-center text-center text-sm border-2 rounded-full transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF911A] duration-300"
               >
-                limpar
+                All
               </button>
             </div>
 
             <div className="col-span-12 grid grid-cols-12 gap-4  items-center">
               {/* Filtros Laterais */}
               <div className="h-full col-start-2 lg:grid grid-rows-4 gap-4  items-center hidden ">
+                {/* Armazena no SetLevel o valor do handleClick*/}
                 <button className=" h-full  " onClick={() => handleClick("Fresh")}>
-                  <Laterais imgUrl="../img/lob1.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lob1.png"  />
                 </button>
+                  {/* Armazena no SetLevel o valor do handleClick*/}
                 <button  className="h-full " onClick={() => handleClick("training")}>
-                  <Laterais imgUrl="../img/lob2.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lob2.png"  />
                 </button>
+                  {/* Armazena no SetLevel o valor do handleClick*/}
                 <button  className="h-full  " onClick={() => handleClick("Champion")}>
-                  <Laterais imgUrl="../img/lob3.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lob3.png"  />
                 </button>
+                  {/* Armazena no SetLevel o valor do handleClick*/}
                 <button  className="h-full  "  onClick={() => handleClick("Mega")}>
-                  <Laterais imgUrl="../img/lob4.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lob4.png"  />
                 </button>
               </div>
 
               {/* Tabela DIGIMONS */}
               <div className="col-span-8 col-start-3 border-2 rounded-xl overflow-auto shadow-2xl h-[26rem] ">
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 p-2 ">
+                  {/* Enquando nao tiver resposta da API carrega um gif */}
                   {loading ? (
                     <div className=" flex col-span-3 items-center justify-center "><img src="../img/gengar-pokemon.gif" alt="" /></div>
                     
                   ) : (
+                    // Filtra os Nomes Do Digimons usando o valor contido no searchName, se estiver vazio apenas retorna todos os digimons
                     digimons
                       .filter((digimon) => {
                         if (searchName === "") {
@@ -136,7 +149,7 @@ const Home: NextPage = () => {
                           return digimon;
                         }
                       })
-
+                    // Filtra o level Dos Digimons usando o valor contido no searchName, se estiver vazio apenas retorna todos os digimons
                       .filter((digimon) => {
                         if (searchLevel === "") {
                           return digimon;
@@ -148,7 +161,7 @@ const Home: NextPage = () => {
                           return digimon;
                         }
                       })
-
+                      // Imprime na tela os Digimons utilzando o MAP para passar por todos os elementos da variavel e imprimindo cada um deles
                       .map((digimon) => (
                         <tr className="hover:scale-105 transition-all hover:bg-[#FF911A] h-[4rem] flex  border-2 rounded-full bg-[#4778A6] text-white text-sm">
                           <td className="">
@@ -180,16 +193,16 @@ const Home: NextPage = () => {
               {/* Filtros Laterais */}
               <div className="h-full lg:grid grid-rows-4 gap-4  items-center hidden">
                 <button  className="h-full " onClick={() => handleClick("in training")}>
-                  <Laterais imgUrl="../img/lag1.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lag1.png"  />
                 </button>
                 <button  className="h-full " onClick={() => handleClick("rookie")}>
-                  <Laterais imgUrl="../img/lag2.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lag2.png"  />
                 </button>
                 <button  className="h-full " onClick={() => handleClick("Ultimate")}>
-                  <Laterais imgUrl="../img/lag3.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lag3.png" />
                 </button>
                 <button  className="h-full " onClick={() => handleClick("Armor")}>
-                  <Laterais imgUrl="../img/lag4.png" result="/level/rookie" />
+                  <Laterais imgUrl="../img/lag4.png"  />
                 </button>
               </div>
             </div>
@@ -204,6 +217,7 @@ const Home: NextPage = () => {
         >
           {/*  Seleção de Personagens  */}
           <div className="md:grid grid-rows-3 gap-2 h-[26rem] col-start-2 hidden">
+            {/* Chama o componente passando algums paramemetros necessarios */}
             <ParticipantButton
               data={{
                 img: {
